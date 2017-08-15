@@ -27,6 +27,12 @@ public class HashMapCustom {
 			this.value = value;
 			this.next = next;
 		}
+
+		@Override
+		public java.lang.String toString() {
+			return "Entry [key=" + key + ", value=" + value + "]";
+		}
+		
 	}
 	
 	/**As soon as the object of 
@@ -143,8 +149,9 @@ public class HashMapCustom {
 	public boolean remove(Integer newKey){
 		int hash = hash(newKey);
 		
-		if( table[hash] == null )
+		if( table[hash] == null ) {
 			return false;
+		}
 		else
 		{
 			Entry<Integer, String> current = table[hash];

@@ -1,20 +1,27 @@
 class A 
 {
-	public void display(int i)
+	int x = 10;
+	protected void display(int i) throws Exception
 	{
 		System.out.println("byte = "+i);
 	}
-	/*public void display(byte i)
+	public void display(float i) throws NullPointerException
 	{
-		System.out.println("Byte Super= "+i);
-	}*/
+		System.out.println("Byte base float= "+i);
+	}
 }
 
 class CA extends A
 {
-	public void display(int i)
+	int x = 11;
+	public void display(int i) throws NullPointerException
 	{
 		System.out.println("Byte Child= "+i);
+	}
+	
+	public void display(float i) throws NullPointerException
+	{
+		System.out.println("Byte Child float= "+i);
 	}
 }
 
@@ -33,8 +40,14 @@ public class B
 	public static void main( String a[] )
 	{
 		A obj = new CA();
-		byte i = 10;
-		obj.display(i);
+		float i = 10;
+		try {
+			obj.display(i);
+		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+		System.out.println(obj.x);
 	}
 }
 

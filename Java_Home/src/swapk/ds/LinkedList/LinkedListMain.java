@@ -40,6 +40,13 @@ public class LinkedListMain {
 		/*String deleteAtPosition = linkedList.deleteAtPosition(3).getData();
 		System.out.println("Node Removed ="+deleteAtPosition);
 		linkedList.displayList();*/
+		
+		//Middle by traversing full list
+		System.out.println("Data at middle : "+linkedList.getDataAtPosition(linkedList.getLength()/2));
+		
+		//Middle by fast pointer and slow pointer
+		System.out.println("Data at middle by fpsp :"+linkedList.getDataAtMiddlePosition());
+		
 	}
 
 }

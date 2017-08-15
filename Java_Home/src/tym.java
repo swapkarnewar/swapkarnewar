@@ -1,21 +1,21 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
-import java.util.Vector;
 
 
 public class tym {
 
 	public static void main(String[] args) {
+		//int a = 9;
+		//int b = 2;
+		//System.out.println(a/b);
 		//double a  = getValAtPos(5);
 		 //int y = (int)a; 
 		//double a  = 1.6d;
 		 //int y = (int)Math.round(a);
 		//System.out.println(y%10000005);
-		//int [] arr = new int[5];
-		//String a1 = largestNumber(arr);
+		int [] arr = {1,3,2,5,6};
+		String a1 = largestNumber(arr);
+		System.out.println(a1);
 		
 	    //double dVal = 3516.6666666666666;
 	    /*double test = dVal*1000;
@@ -24,7 +24,7 @@ public class tym {
 	    //System.out.printf ("Value with 4 digits after decimal point %1.4f", dVal);
 	    //System.out.print (dVal1);
 	    
-		int e = 3;
+		/*int e = 3;
 		double c = 2;
 		if( c == (int)c )
 			System.out.println("c is int");
@@ -39,7 +39,7 @@ public class tym {
 			val = str.charAt(i) - 'a';
 		}
 		
-		int [][] matrix = {{2,3},{6,4,5}};
+		int [][] matrix = {{2,3},{6,4,5}};*/
 		//System.out.println(matrix.length);
 		
 	}
@@ -75,8 +75,9 @@ public class tym {
 
 }
 
+//No need of following class
 /*class LargestNumber {
-	private static String largestNumber(int[] a) {
+	public static String largestNumber(int[] a) {
 		final String sortString = "0123456789";
 		StringBuffer result = new StringBuffer();
 		List<String> list = new ArrayList<String>();

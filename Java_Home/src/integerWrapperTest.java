@@ -21,6 +21,10 @@ public class integerWrapperTest {
 		
 		System.out.println(list.toString());
 		
+		Integer r = 128;
+		Integer r2 = 128;
+		System.out.println(r.intValue()==r2.intValue());
+		
 	}
 
 }

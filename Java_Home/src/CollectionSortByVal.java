@@ -52,7 +52,7 @@ public class CollectionSortByVal {
 			}
         	
 		});
-        System.out.println("Before sorting by value: "+listOfentrySet);
+        System.out.println("After sorting by value: "+listOfentrySet);
         
         PSO pso1 = new PSO("swapnil", 1);
         PSO pso2 = new PSO("har", 2);

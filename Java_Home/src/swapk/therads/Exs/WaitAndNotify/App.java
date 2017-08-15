@@ -29,11 +29,23 @@ public class App {
 			}
 		});
 	
+		Thread t3 = new Thread(new Runnable() {
+			public void run() {
+				try {
+					processor.aloneMethod();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
 		t1.start();
 		t2.start();
+		t3.start();
 		
-		t1.join();
-		t2.join();
+/*		t1.join();
+		t2.join();*/
 	}
 
 }

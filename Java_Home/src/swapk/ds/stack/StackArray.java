@@ -1,14 +1,15 @@
 package swapk.ds.stack;
 
-public class StackArray {
+
+public class StackArray<T> {
 	private int maxSize;
 	private int top;
-	private int[] stackArray;
+	private T[] stackArray;
 	
 	public StackArray( int size ){
 		top = -1;
 		maxSize = size;
-		stackArray = new int[maxSize];
+		stackArray = (T[]) new Object[maxSize];
 	}
 	
 	public boolean isStackEmpty(){
@@ -19,33 +20,33 @@ public class StackArray {
 		return ( top == maxSize-1 );
 	}
 	
-	public void push(int data) throws Exception{
+	public void push(T data) throws Exception{
 		if( isStackFull() )
 			throw new Exception("Stack is Full.");
 		stackArray[++top] = data;
 	}
 	
-	public int pop() throws Exception{
+	public T pop() throws Exception{
 		if( isStackEmpty() ){
 			throw new Exception("Stack is Empty.");
 		}
-		int data = stackArray[top];
+		T data = stackArray[top];
 		top--;
 		return data;
 	}
 	
-	public int peek() throws Exception{
+	public T peek() throws Exception{
 		if( isStackEmpty() ){
 			throw new Exception("Stack is Empty.");
 		}
-		int data = stackArray[top];
+		T data = stackArray[top];
 		return data;
 	}
 	
 	public void displayStack(){
 		try{
 			for(int iTemp=0; iTemp<=top; iTemp++){
-				int data = stackArray[iTemp];
+				T data = stackArray[iTemp];
 				System.out.print(data+" ");
 			}
 			System.out.println("\t");
@@ -56,7 +57,7 @@ public class StackArray {
 	}
 	
 	public static void main( String a[] ){
-		StackArray stackArray = new StackArray(5);
+		StackArray<Integer> stackArray = new StackArray<>(5);
 		try{
 			stackArray.push(1);
 			stackArray.push(2);
