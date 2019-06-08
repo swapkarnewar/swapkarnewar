@@ -9,7 +9,6 @@ class BaseAnimal {
 	}
 	
 	BaseAnimal() {
-		
 		System.out.println("in animal cons");
 	}
 	

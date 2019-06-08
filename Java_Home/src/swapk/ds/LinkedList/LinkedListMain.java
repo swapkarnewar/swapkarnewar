@@ -1,34 +1,33 @@
 package swapk.ds.LinkedList;
-import javax.swing.text.Position;
 
 public class LinkedListMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		RemoveDupsFromLL linkedList = new RemoveDupsFromLL();
+		RemoveDupsFromLL<String> linkedList = new RemoveDupsFromLL<>();
 		
 		
-		linkedList.addAtBegining( new ListNode("Swap") );
-		linkedList.addAtBegining( new ListNode("Harneesha") );
-		linkedList.addAtEnd( new ListNode("test") );
-		linkedList.addAtEnd( new ListNode("Nitil") );
-		linkedList.addAtEnd( new ListNode("Dinya") );
-		linkedList.addAtEnd( new ListNode("Kunal") );
-		linkedList.addAtEnd( new ListNode("Sneha") );
-		linkedList.addAtGivenPosition( new ListNode("Ram"), 3 );
-		linkedList.addAtEnd( new ListNode("Harneesha") );
-		linkedList.addAtEnd( new ListNode("Swapnil") );
+		linkedList.addAtBegining( new ListNode<String>("Swap") );
+		linkedList.addAtBegining( new ListNode<String>("Harneesha") );
+		linkedList.addAtEnd( new ListNode<String>("test") );
+		linkedList.addAtEnd( new ListNode<String>("Nitil") );
+		linkedList.addAtEnd( new ListNode<String>("Dinya") );
+		linkedList.addAtEnd( new ListNode<String>("Kunal") );
+		linkedList.addAtEnd( new ListNode<String>("Sneha") );
+		linkedList.addAtGivenPosition( new ListNode<String>("Ram"), 3 );
+		linkedList.addAtEnd( new ListNode<String>("Harneesha") );
+		linkedList.addAtEnd( new ListNode<String>("Swapnil") );
 		linkedList.displayList();
 		
 		//String dataRemoved = linkedList.deleteAtBegining().getData();
-		String dataRemoved = linkedList.deleteAtEnd().getData();
+		String dataRemoved = (String) linkedList.deleteAtEnd().getData();
 		System.out.println("Node Removed ="+dataRemoved);
 		linkedList.displayList();
 		
 		linkedList.reverseList();
 		linkedList.displayList();
 		
-		String data = linkedList.getDataAtPosition(3);
+		String data = (String) linkedList.getDataAtPosition(3);
 		System.out.println("Data At Position 3 ="+data);
 		
 		System.out.println("Length = "+linkedList.getLength());
@@ -46,7 +45,26 @@ public class LinkedListMain {
 		
 		//Middle by fast pointer and slow pointer
 		System.out.println("Data at middle by fpsp :"+linkedList.getDataAtMiddlePosition());
+		linkedList.getNodeAtPosition(linkedList.getLength()).setNext(linkedList.getNodeAtPosition(linkedList.getLength()/2));
 		
+		/**
+		 * Detect a loop
+		 * http://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
+		 * and if loop is there remove it
+		 * http://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
+		 */
+		boolean isLoopExists = linkedList.isLoopExists();
+		if( isLoopExists ) {
+			linkedList.removeLoopFromLinkedList();
+		}
+		linkedList.displayList();
+		
+		/**
+		 * delete n th node form end of linked list
+		 * http://www.geeksforgeeks.org/nth-node-from-the-end-of-a-linked-list/
+		 */
+		System.out.println("deleted 3rd from end of list : "+linkedList.deleteNthNodeFromEnd(3).getData());
+		linkedList.displayList();
 	}
 
 }

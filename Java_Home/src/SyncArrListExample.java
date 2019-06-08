@@ -8,45 +8,41 @@ public class SyncArrListExample {
 
 	public static void main(String[] args) {
 		 
-        final List<Integer> arrayList = new ArrayList<Integer>();
-        final List<Integer> synchronizedArrayList;
+        final List<Integer> synchronizedArrayList = new ArrayList<Integer>();
+        //final List<Integer> synchronizedArrayList;
 
         // Let's make arrayList synchronized
-        synchronizedArrayList = Collections.synchronizedList(arrayList);
+        //synchronizedArrayList = Collections.synchronizedList(arrayList);
         
         //Thread 1 will add elements in synchronizedArrayList
         Thread t1 = new Thread(new Runnable() {
 
                public void run() {
-                     for (int i = 0; i <= 3; i++) {
-                            synchronizedArrayList.add(i);
-                     }
+		            	   try {
+		           			Thread.sleep(1000);
+		           		} catch (InterruptedException e) {
+		           			// TODO Auto-generated catch block
+		           			e.printStackTrace();
+		           		}
+                            synchronizedArrayList.add(12);
                }
         }, "thread-1");
         
         t1.start();
         
-        System.out.println(synchronizedArrayList.size());
+        
+        System.out.println("size = " + synchronizedArrayList.size());
         
         for(int j=0; j<synchronizedArrayList.size(); j++)
-        	System.out.println(synchronizedArrayList.get(j).toString());
+        	System.out.println("ele - " + synchronizedArrayList.get(j).toString());
 
         //Thread 2 will iterate on synchronizedArrayList
-        /*Thread t2 = new Thread(new Runnable() {
+        Thread t2 = new Thread(new Runnable() {
                public void run() {
-                     Iterator<Integer> it = synchronizedArrayList.iterator();
-                     while (it.hasNext()) {
-                            try {
-                                   Thread.sleep(100);
-                            } catch (InterruptedException e) {
-                                   e.printStackTrace();
-                            }
-                            System.out.println(it.next());//throws ConcurrentModificationException
-                     }
-
+            	   System.out.println("int t2 - "+synchronizedArrayList.get(0));
                }
-        }, "thread-2");*/
-        //t2.start();
+        }, "thread-2");
+        t2.start();
 
  }
 

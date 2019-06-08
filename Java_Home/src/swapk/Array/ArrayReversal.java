@@ -13,13 +13,11 @@ public class ArrayReversal {
 		}*/
 		
 		//O(log N)
-		for( int i = 0; i < arr.length/2; i++ )
-		{
-			int other = arr.length - 1 - i;
+		for( int i = 0, j = arr.length-1; i <= (arr.length-1)/2; i++,j-- ) {
 			int temp = arr[i];
-			arr[i] = arr[other];
-			arr[other] = temp;
-		}
+			arr[i] = arr[j];
+			arr[j] = temp;
+		}//10 9 8 7 6 5 4 3 2 1 
 		
 		for( int j=0; j<=arr.length-1; j++ )
 			System.out.print(arr[j]+" ");

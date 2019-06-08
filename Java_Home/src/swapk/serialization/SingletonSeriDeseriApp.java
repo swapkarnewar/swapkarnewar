@@ -18,7 +18,7 @@ class SingletonSeriDeseriApp implements Serializable {
 	private int id;
 	private static SingletonSeriDeseriApp INSTANCE = null;
 	
-	private SingletonSeriDeseriApp() { }
+	//private SingletonSeriDeseriApp() { }
 	
 	public static SingletonSeriDeseriApp getInstance() {
 		if (INSTANCE == null) {

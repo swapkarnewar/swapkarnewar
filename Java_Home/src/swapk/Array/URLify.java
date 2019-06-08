@@ -14,7 +14,7 @@ public class URLify {
 		
 		char[] arr = str.toCharArray();
 		int trueLength = findTrueLength(arr) + 1;
-		System.out.println(trueLength);
+		System.out.println("trueLength = "+trueLength);
 		arr = convertStringToURL(arr, trueLength);
 		
 		StringBuilder sb = new StringBuilder(arr.length);
@@ -36,7 +36,7 @@ public class URLify {
 		}
 		int totalLength = trueLength + spaceCount*2;
 		arr = Arrays.copyOf(arr, totalLength);
-		System.out.println(totalLength);
+		System.out.println("totalLength = "+totalLength);
 		for( int i = trueLength-1; i >=0; i-- ) {
 			if( arr[i] == ' ' ) {
 				arr[totalLength-1] = '0';

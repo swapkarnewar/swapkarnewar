@@ -1,14 +1,11 @@
 package swapk.ds.LinkedList;
 
-import java.awt.List;
-
-import javax.swing.text.DefaultEditorKit.CutAction;
-
-
-public class LinkedListCust {
+//this will suppress warning
+//@SuppressWarnings("unchecked")
+public class LinkedListCust<T> {
 	
 	private int length;
-	protected ListNode head;
+	public ListNode<T> head;
 
 	/**
 	 * @return the length
@@ -17,7 +14,7 @@ public class LinkedListCust {
 		return length;
 	}
 	
-	public void addAtBegining(ListNode listNode){
+	public void addAtBegining(ListNode<T> listNode){
 		if( null == listNode ){
 			throw new NullPointerException("Node can not be added as Node is null");
 		}
@@ -32,7 +29,7 @@ public class LinkedListCust {
 		}
 	}
 	
-	public void addAtEnd(ListNode listNode){
+	public void addAtEnd(ListNode<T> listNode){
 		if( null == listNode ){
 			throw new NullPointerException("Node can not be added as Node is null");
 		}
@@ -41,7 +38,7 @@ public class LinkedListCust {
 			length++;
 		}
 		else{
-			ListNode currNode = head;
+			ListNode<T> currNode = head;
 			while( currNode.getNext() != null ){
 				currNode = currNode.getNext();
 			}
@@ -50,7 +47,7 @@ public class LinkedListCust {
 		}
 	}
 	
-	public void addAtGivenPosition(ListNode listNode, int position){
+	public void addAtGivenPosition(ListNode<T> listNode, int position){
 		if( position < 0 || position > length)
 		{
 			System.out.println("Please Enter valid Position.");
@@ -66,7 +63,7 @@ public class LinkedListCust {
 			length++;
 		}
 		else{
-			ListNode currNode = head;
+			ListNode<T> currNode = head;
 			for( int iTemp = 1; iTemp < position; iTemp++ )
 			{
 				currNode = currNode.getNext();
@@ -77,7 +74,7 @@ public class LinkedListCust {
 		}
 	}
 	
-	public ListNode deleteAtBegining(){
+	public ListNode<T> deleteAtBegining(){
 		if( null == head )
 		{
 			System.out.println("List is Empty.");
@@ -85,7 +82,7 @@ public class LinkedListCust {
 		}
 		else
 		{
-			ListNode currNode = head;
+			ListNode<T> currNode = head;
 			head = head.getNext();
 			currNode.setNext(null);
 			length--;
@@ -94,9 +91,9 @@ public class LinkedListCust {
 		
 	}
 	
-	public ListNode deleteAtEnd(){
-		ListNode currNode = null;
-		ListNode removeNode = null;
+	public ListNode<T> deleteAtEnd(){
+		ListNode<T> currNode = null;
+		ListNode<T> removeNode = null;
 		if( null == head )
 		{
 			System.out.println("List is Empty.");
@@ -123,7 +120,7 @@ public class LinkedListCust {
 		
 	}
 	
-	public ListNode deleteAtPosition( int position ){
+	public ListNode<T> deleteAtPosition( int position ){
 		if( position < 0 )
 		{
 			System.out.println("Please Enter valid Position.");
@@ -142,15 +139,15 @@ public class LinkedListCust {
 		}
 		else
 		{
-			ListNode currNode = head;
+			ListNode<T> currNode = head;
 			for( int iTemp = 1; iTemp < position; iTemp++ )
 			{
 				currNode = currNode.getNext();
 			}
-			ListNode temp = currNode.getNext();
-			currNode.setNext( temp.getNext() );
+			ListNode<T> removeNode = currNode.getNext();
+			currNode.setNext( removeNode.getNext() );
 			length--;
-			return temp;
+			return removeNode;
 		}
 		
 	}
@@ -161,9 +158,9 @@ public class LinkedListCust {
 			return;
 		}
 		
-		ListNode prevToPrev = null;
-		ListNode prev = head;
-		ListNode currNode = head;
+		ListNode<T> prevToPrev = null;
+		ListNode<T> prev = head;
+		ListNode<T> currNode = head;
 		
 		if( currNode != null && currNode.getNext() != null ){
 			currNode = currNode.getNext();
@@ -180,10 +177,10 @@ public class LinkedListCust {
 
 	}
 	
-	public String getDataAtPosition( int position )
+	public T getDataAtPosition( int position )
 	{
-		String data = "";
-		ListNode temp = null;
+		T data = null;
+		ListNode<T> temp = null;
 		int count = 1;
 		if( position > length || position < 1){
 			System.out.println("Enter proper position.");
@@ -208,7 +205,7 @@ public class LinkedListCust {
 			System.out.println( head.getData() );
 		}
 		else{
-			ListNode currNode = head;
+			ListNode<T> currNode = head;
 			
 			String result = String.valueOf( currNode.getData() );
 			
@@ -221,7 +218,7 @@ public class LinkedListCust {
 	}
 	
 	public int getLength(){
-		ListNode temp = head;
+		ListNode<T> temp = head;
 		int count = 0;
 		while( temp != null ){
 			count++;
@@ -234,7 +231,7 @@ public class LinkedListCust {
 		return getLengthByRec(head);
 	}
 	
-	public int getLengthByRec( ListNode listNode ){
+	private int getLengthByRec( ListNode<T> listNode ){
 		if( listNode == null ){
 			return 0;
 		}
@@ -244,4 +241,102 @@ public class LinkedListCust {
 		}
 			
 	}
+	
+	public ListNode<T> getNodeAtPosition( int position )
+	{
+		ListNode<T> temp = null;
+		int count = 1;
+		if( position > length || position < 1){
+			System.out.println("Enter proper position.");
+			return null;
+		}
+		else{
+			temp = head;
+			while( temp.getNext() != null && count < position ){
+				temp = temp.getNext();
+				count++;
+			}
+		}
+		return temp;
+	}
+	
+	/**
+	 * http://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
+	 * @return
+	 */
+	public boolean isLoopExists() {
+		if( null == head ) {
+			System.out.println("List is Empty.");
+			throw new NullPointerException("Node can not be deleted as List is null");
+		}
+		else if( null == head.getNext() ) {
+			return false;
+		}
+		else {
+			ListNode<T> fastPtr = head;
+			ListNode<T> slowPtr = head;
+			while( slowPtr != null && fastPtr != null && fastPtr.getNext() != null ) {
+				fastPtr = fastPtr.getNext().getNext();
+				slowPtr = slowPtr.getNext();
+				if( slowPtr == fastPtr )
+					return true;
+			}
+		}
+		return false;
+	}
+	
+	public void removeLoopFromLinkedList() {
+		if( null == head ) {
+			System.out.println("List is Empty. Failed...");
+			throw new NullPointerException("Node can not be deleted as List is null");
+		}
+		else if( null == head.getNext() ) {
+			System.out.println("Only one node is present. Failed...");
+		}
+		else {
+			ListNode<T> fastPtr = head;
+			ListNode<T> slowPtr = head;
+			while( slowPtr != null && fastPtr != null && fastPtr.getNext() != null ) {
+				fastPtr = fastPtr.getNext().getNext();
+				slowPtr = slowPtr.getNext();
+				if( slowPtr == fastPtr )
+					break;
+			}
+			slowPtr = head;
+			while( slowPtr.getNext() != fastPtr.getNext() ) {
+				slowPtr = slowPtr.getNext();
+				fastPtr = fastPtr.getNext();
+			}
+			fastPtr.setNext(null); //here loop removed
+			System.out.println("Removed Loop...");
+		}
+	}
+	
+	public ListNode<T> deleteNthNodeFromEnd(int n) {
+		ListNode<T> temp = null;
+		if( null == head ) {
+			System.out.println("List is Empty. Failed...");
+			throw new NullPointerException("Node can not be deleted as List is null");
+		}
+		else if( null == head.getNext() ) {
+			System.out.println("Only one node is present. Failed...");
+			return temp;
+		}
+		else {
+			ListNode<T> prevPtr = null;
+			ListNode<T> mainPtr = head;
+			ListNode<T> refPtr = head;
+			for(int i = 1; i <= n; i++ ) {
+				refPtr = refPtr.getNext();
+			}
+			while( refPtr != null ) {
+				prevPtr = mainPtr;
+				mainPtr = mainPtr.getNext();
+				refPtr = refPtr.getNext();
+			}
+			prevPtr.setNext(mainPtr.getNext());
+			return mainPtr;
+		}
+	}
+
 }

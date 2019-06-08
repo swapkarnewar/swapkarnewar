@@ -9,11 +9,11 @@ public class SwapnilGenericsCollection {
 	public static void main(String[] args) {
 		
 		Collection<String> arrList1 = new ArrayList<String>();
-		arrList1.add("Harneesha1");
+		arrList1.add("Snehal1");
 		
 		List<String> arrList = new ArrayList<String>(arrList1);
 		arrList.add("swapnil");
-		arrList.add("harneesha");
+		arrList.add("snehal");
 		
 		System.out.println(arrList);
 	}

@@ -1,5 +1,7 @@
 import java.util.HashMap;
 
+// simple - https://www.careercup.com/question?id=17230678
+
 /*You are required to complete below class */
 class LRUCache {
 

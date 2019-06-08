@@ -17,6 +17,15 @@ public class tym {
 		String a1 = largestNumber(arr);
 		System.out.println(a1);
 		
+		int a = 1;
+		int b = 1;
+		if( a < b ) {
+			System.out.println("ok");
+		}
+		else {
+			System.out.println("not ok");
+		}
+		
 	    //double dVal = 3516.6666666666666;
 	    /*double test = dVal*1000;
 	    int a = (int)test;

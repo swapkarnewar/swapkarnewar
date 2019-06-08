@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -10,10 +12,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.WeakHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 class MyCollectionUtil{
 	public static void display(Collection col){
@@ -61,12 +65,22 @@ public class TestCollection {
 		System.out.println(set.add("Nitil"));
 		System.out.println(set.add(null));*/
 		set.add("Swapnil");
-		set.add("harneesha");
-		set.add("harnneeshaaa");
+		set.add("snehal");
+		set.add("snehalllll");
 		set.add("swap");
 		
+		MyCollectionUtil.display(set);
+		Iterator k = set.iterator();
+		while( k.hasNext() ) {
+			String d = (String) k.next();
+			if( "snehal".equals(d) ) {
+				//set.add("love"); //error since fail-fast
+				System.out.println("hi--------");
+			}
+		}
+		MyCollectionUtil.display(set);
 		//output of set is like stack, FIFO
-		//here Harneesha and then Swapnil
+		//here snehal and then Swapnil
 		//MyCollectionUtil.display(set);
 		
 		/*Iterator<Integer> itr2 = set.iterator();
@@ -109,10 +123,10 @@ public class TestCollection {
 				listItr.remove();;
 		}*/
 		
-		System.out.println(list);
+		System.out.println("list is here-"+list);
 		
-		//boolean flag = list.add("Harneesha");
-		//boolean flag2 = list.remove("Harneesha");
+		//boolean flag = list.add("snehal");
+		//boolean flag2 = list.remove("snehal");
 		//System.out.println(flag);
 		//System.out.println(flag2);
 		//MyCollectionUtil.display(list);
@@ -132,9 +146,9 @@ public class TestCollection {
 		ConcurrentHashMap<Integer, String> myMap = new ConcurrentHashMap<Integer, String>();
 		//Map<Integer, String> mySyncMap = Collections.synchronizedMap(myMap);
 		myMap.put(1, "Swap");
-		myMap.put(3, "Nitil");
+		myMap.put(33, "Nitil");
 		myMap.put(5, "AAbc");
-		myMap.put(2, "Harneesha");
+		myMap.put(20, "snehal");
 		
 		/*Iterator itr = myMap.keySet().iterator();
 		
@@ -149,12 +163,13 @@ public class TestCollection {
 			}
 		}*/
 
-		myMap.put(15, "sahib");
-		myMap.put(8, "A");
+		myMap.put(15, "chikuu");
+		myMap.put(4, "A");
 		
 		
 		Set<Entry<Integer,String>> entrySet = myMap.entrySet();
-		System.out.println(entrySet);
+		System.out.println("entrySet - " + entrySet);
+		
 
 		//sort by key
 		TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>(myMap);
@@ -195,8 +210,8 @@ public class TestCollection {
 		/*copySet.add(null);
 		copySet.add(null);
 		copySet.add(null);*/
-		copySet.add("HarneeshaLove");
-		copySet.add("HarneeshaLove");//it will not print as duplicate
+		copySet.add("snehalLove");
+		copySet.add("snehalLove");//it will not print as duplicate
 		MyCollectionUtil.display(copySet);
 		/*while( itr.hasNext() )
 		{
@@ -205,6 +220,33 @@ public class TestCollection {
 			System.out.println(value);
 		}*/
 		//System.out.println(mySortedMap.lastKey());
+		
+		//TEsting if list has no elements will iterator work?
+		List<Integer> listInt = new ArrayList<>();
+		Iterator i = listInt.iterator();
+		
+		System.out.println("hasElement : "+i.hasNext());
+		//System.out.println("elements : "+i.next());
+		
+		Long q = -129L;
+		Long z = -129L;
+		System.out.println(q==z);
+		
+		System.out.println("asssssssssssssssssssssssssssssssssssssssssssssssss");
+		Set<Integer> sp = new CopyOnWriteArraySet<>();
+		sp.add(11);
+		sp.add(12);
+		Iterator t = sp.iterator();
+		while(t.hasNext()) {
+			sp.add(13);
+			System.out.println(t.next());
+		}
+		
+		System.out.println(sp);
+		
+		
+		
+		
 	}
 	
 }

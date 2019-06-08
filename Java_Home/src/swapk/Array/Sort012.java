@@ -3,11 +3,11 @@ package swapk.Array;
 public class Sort012 {
 
 	public static void main(String[] args) {
-		int arr[] = { 0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1 };
+		int arr[] = { 0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1, 2, 2 };
 	    int arr_size = arr.length;
-	    sort012(arr, arr_size);
+	    /*sort012(arr, arr_size);
 	    System.out.println("Array after seggregation ");
-	    printArray(arr, arr_size);
+	    printArray(arr, arr_size);*/
 	    
 	    sortByOwnTech(arr, arr_size);
 	    System.out.println("Array after own tech ");
@@ -60,12 +60,12 @@ public class Sort012 {
 		int h = arr_size-1;
 		int RM1 = arr_size-1;
 		boolean RM1Count = true;
-		while( l < h && h < RM1 && l < RM1) {
-			while( l == 0 )
+		while( l < h && l < RM1) {
+			while( arr[l] == 0 )
 				l++;
-			while( h == 2 )
+			while( arr[h] == 2 )
 				h--;
-			while( h == 1 ) {
+			while( arr[h] == 1 ) {
 				if( RM1Count ) {
 					RM1 = h;
 					RM1Count = false;

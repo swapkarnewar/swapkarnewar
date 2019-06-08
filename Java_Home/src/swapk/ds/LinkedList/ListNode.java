@@ -1,24 +1,24 @@
 package swapk.ds.LinkedList;
 
-public class ListNode {
+public class ListNode<T> {
 	
-	private String data;
+	private T data;
 	private ListNode next;
 	
-	public ListNode(String data){
+	public ListNode(T data){
 		this.data = data;
 	}
 	
 	/**
 	 * @return the data
 	 */
-	public String getData() {
+	public T getData() {
 		return data;
 	}
 	/**
 	 * @param data the data to set
 	 */
-	public void setData(String data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 	/**

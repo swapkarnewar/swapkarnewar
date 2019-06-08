@@ -31,20 +31,16 @@ public class ThreadJoinExs {
 			}
 		});
 		
-		Thread t2 = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				System.out.println("Thread started: "+Thread.currentThread().getName());
-				try {
-					Thread.sleep(2000);
-					obj.print2();
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				System.out.println("Thread Ended: "+Thread.currentThread().getName());
+		Thread t2 = new Thread(() -> {
+			System.out.println("Thread started: "+Thread.currentThread().getName());
+			try {
+				Thread.sleep(2000);
+				obj.print2();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+			System.out.println("Thread Ended: "+Thread.currentThread().getName());
 		});
 		
 		/*Thread t3 = new Thread(new Runnable() {

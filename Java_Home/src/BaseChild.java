@@ -1,4 +1,8 @@
 class C {
+	
+	public C() {
+		System.out.println("in c");
+	}
 	int x = 10;
 	
 	/*public int getX() {
@@ -22,6 +26,9 @@ class C {
 
 class D extends C
 {
+	public D() {
+		System.out.println("in d");
+	}
 	int x = 11;
 	/*public int getX() {
 		return x;
@@ -55,6 +62,8 @@ class BaseChild
 		//System.out.println(obj.getX());
 		//BaseChild obj =  new BaseChild();
 		//obj.method(10,10);
+		
+		
 	}
 	
 	void method(int i, long j)

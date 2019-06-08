@@ -2,6 +2,7 @@ package swapk.Array;
 
 /**
  * This is Kendane's Algoritham
+ * https://www.techiedelight.com/maximum-subarray-problem-kadanes-algorithm/
  * @author SKarnewar
  *
  */
@@ -15,12 +16,8 @@ public class LongestSumContiguous {
 		
 		for( int i = 0; i < arr.length - 1; i++ ) {
 			currMax = currMax + arr[i];
-			if( currMax < 0 ) {
-				currMax = 0;
-			}
-			else if( sumMax < currMax ) {
-				sumMax = currMax;
-			}
+			currMax = Integer.max(currMax, 0);
+			sumMax = Integer.max(currMax, sumMax);
 		}
 		
 		System.out.println("Largest sum of contiguous subarray is "+sumMax);

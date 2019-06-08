@@ -5,7 +5,7 @@ import java.util.Set;
 /*
  * CTCI Q2_01
  */
-public class RemoveDupsFromLL extends LinkedListCust {
+public class RemoveDupsFromLL<T> extends LinkedListCust {
 
 	public void removeDupsFromLL(){
 		
@@ -40,22 +40,22 @@ public class RemoveDupsFromLL extends LinkedListCust {
 		
 	}
 
-	public String getDataAtMiddlePosition() {
+	public T getDataAtMiddlePosition() {
 		if( null == head ) {
 			System.out.println("List is Empty.");
 			throw new NullPointerException("Node can not be deleted as List is null");
 		}
 		else if( null == head.getNext() ) {
-			return head.getData();
+			return (T) head.getData();
 		}
 		else {
 			ListNode fastPtr = head;
 			ListNode slowPtr = head;
-			while( fastPtr != null && fastPtr.getNext() != null ) {
+			while( slowPtr != null && fastPtr != null && fastPtr.getNext() != null ) {
 				fastPtr = fastPtr.getNext().getNext();
 				slowPtr = slowPtr.getNext();
 			}
-			return slowPtr.getData();
+			return (T) slowPtr.getData();
 		}
 	}
 	

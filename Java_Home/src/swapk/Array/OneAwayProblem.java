@@ -20,7 +20,7 @@ public class OneAwayProblem {
 	
 	public static void main(String[] args) {
 		String a = "pald";
-		String b = "pale";
+		String b = "paled";
 		boolean isOneEdit1 = oneEditAway(a, b);
 		System.out.println(a + ", " + b + ": " + isOneEdit1);
 	}

@@ -18,6 +18,7 @@ public class BasicString {
 		String str = "ABC";
 		System.out.println(str.length());
 		System.out.println(str.substring(1));
+	
 	}
 
 }

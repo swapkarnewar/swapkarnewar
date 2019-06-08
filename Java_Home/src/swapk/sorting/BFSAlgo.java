@@ -2,11 +2,12 @@ package swapk.sorting;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class BFSAlgo {
 
 	private int V;   // No. of vertices
-    private LinkedList<Integer> adj[]; //Adjacency Lists
+    private LinkedList<Integer> [] adj; //Adjacency Lists
  
     // Constructor
     BFSAlgo(int v)
@@ -28,10 +29,10 @@ public class BFSAlgo {
     {
         // Mark all the vertices as not visited(By default
         // set as false)
-        boolean visited[] = new boolean[V];
+        boolean [] visited = new boolean[V];
  
         // Create a queue for BFS
-        LinkedList<Integer> queue = new LinkedList<Integer>();
+        Queue<Integer> queue = new LinkedList<Integer>();
  
         // Mark the current node as visited and enqueue it
         visited[s]=true;
@@ -69,7 +70,7 @@ public class BFSAlgo {
         g.addEdge(2, 0);
         g.addEdge(2, 3);
         g.addEdge(3, 3);
- 
+        
         System.out.println("Following is Breadth First Traversal "+
                            "(starting from vertex 2)");
  
